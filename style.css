@@ -1,0 +1,160 @@
+:root {
+    --bg-color: #1a1a1a;
+    --accent-color: #00ff88;
+    --text-color: #ffffff;
+    --ui-bg: rgba(0, 0, 0, 0.7);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.game-container {
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    background: linear-gradient(to bottom, #2b32b2, #1488cc);
+    /* Default sky */
+    background-size: cover;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+#score-board {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    text-shadow: 2px 2px 0 #000;
+    display: flex;
+    gap: 20px;
+}
+
+#weather-indicator {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--ui-bg);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#rain-warning {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background: rgba(255, 0, 0, 0.3);
+    color: #ff4444;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+#rain-warning.hidden {
+    display: none;
+    animation: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    pointer-events: auto;
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--accent-color);
+    text-align: center;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.controls-hint {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+button {
+    background: var(--accent-color);
+    border: none;
+    padding: 15px 30px;
+    font-family: 'Press Start 2P', cursive;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+button:active {
+    transform: scale(0.95);
+}

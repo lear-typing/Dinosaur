@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Runner Ex</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-layer">
+            <div id="score-board">
+                <span id="score">00000</span>
+                <span id="coins">🪙 0</span>
+            </div>
+            <div id="weather-indicator">☀️ Clear</div>
+            <div id="rain-warning" class="hidden">⚠️ Wet Ground - Jump Low!</div>
+            <div id="start-screen" class="overlay">
+                <h1>DINO RUNNER EX</h1>
+                <p>Press Any Key to Start</p>
+                <div class="controls-hint">
+                    <p>Jump: Up Arrow</p>
+                    <p>Duck: Down Arrow</p>
+                </div>
+            </div>
+            <div id="game-over-screen" class="overlay hidden">
+                <h1>GAME OVER</h1>
+                <p>Score: <span id="final-score">0</span></p>
+                <button id="restart-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
